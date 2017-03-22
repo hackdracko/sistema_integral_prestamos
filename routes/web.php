@@ -14,3 +14,4 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/api/login/{id}', 'UsuarioApiController@login');
