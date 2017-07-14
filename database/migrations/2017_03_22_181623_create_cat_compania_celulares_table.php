@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCatStsGrupoclienteTable extends Migration
+class CreateCatCompaniaCelularesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateCatStsGrupoclienteTable extends Migration
      */
     public function up()
     {
-        Schema::create('cat_sts_grupocliente', function (Blueprint $table) {
+        Schema::create('cat_compania_celulares', function (Blueprint $table) {
             $table->increments('id');
             $table->string('descripcion', 30);
             $table->timestamps();
@@ -28,6 +28,6 @@ class CreateCatStsGrupoclienteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cat_sts_grupocliente');
+        Schema::dropIfExists('cat_compania_celulares');
     }
 }

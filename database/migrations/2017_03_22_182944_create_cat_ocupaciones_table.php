@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCatCompaniaCelularTable extends Migration
+class CreateCatOcupacionesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateCatCompaniaCelularTable extends Migration
      */
     public function up()
     {
-        Schema::create('cat_compania_celular', function (Blueprint $table) {
+        Schema::create('cat_ocupaciones', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('descripcion', 30);
-            $table->boolean("estatus")->default(true);
+            $table->string('descripcion', 50);
+            $table->string('segmento', 50);
+            $table->integer('orden');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -28,6 +30,6 @@ class CreateCatCompaniaCelularTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cat_compania_celular');
+        Schema::dropIfExists('cat_ocupaciones');
     }
 }

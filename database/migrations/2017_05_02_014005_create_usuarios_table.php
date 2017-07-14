@@ -15,13 +15,17 @@ class CreateUsuariosTable extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('idPromotor');
+            $table->integer('promotor_id')->unsigned();
             $table->string('usuario', 15)->unique();
             $table->string('password', 50);
             $table->boolean("administrador")->default(false);
-            $table->dateTime("fechaVencimiento");
-            $table->boolean("estatus")->default(true);
+            $table->dateTime("fecha_vencimiento");
             $table->timestamps();
+            $table->softDeletes();
+        });
+
+        Schema::table('usuarios', function($table) {
+            $table->foreign('promotor_id')->references('id')->on('cat_promotores');
         });
     }
 
@@ -33,5 +37,10 @@ class CreateUsuariosTable extends Migration
     public function down()
     {
         Schema::dropIfExists('usuarios');
+
+        Schema::table('usuarios', function($table)
+        {
+            $table->dropForeign('promotor_id');
+        });
     }
 }

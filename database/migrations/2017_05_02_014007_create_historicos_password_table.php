@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHistoricoPasswordTable extends Migration
+class CreateHistoricosPasswordTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,16 @@ class CreateHistoricoPasswordTable extends Migration
      */
     public function up()
     {
-        Schema::create('historico_password', function (Blueprint $table) {
+        Schema::create('historicos_password', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('idUsuario')->unsigned();
+            $table->integer('usuario_id')->unsigned();
             $table->string('password', 50);
-            $table->boolean("estatus")->default(true);
             $table->timestamps();
+            $table->softDeletes();
+        });
 
-            $table->foreign('idUsuario')->references('id')->on('usuarios');
+        Schema::table('historicos_password', function($table) {
+            $table->foreign('usuario_id')->references('id')->on('usuarios');
         });
     }
 
@@ -31,11 +33,11 @@ class CreateHistoricoPasswordTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('historico_password');
+        Schema::dropIfExists('historicos_password');
 
         Schema::table('historico_password', function($table)
         {
-            $table->dropForeign('idUsuario');
+            $table->dropForeign('usuario_id');
         });
     }
 }

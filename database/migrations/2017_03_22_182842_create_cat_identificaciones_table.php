@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCatEstadoCivilTable extends Migration
+class CreateCatIdentificacionesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateCatEstadoCivilTable extends Migration
      */
     public function up()
     {
-        Schema::create('cat_estado_civil', function (Blueprint $table) {
+        Schema::create('cat_identificaciones', function (Blueprint $table) {
             $table->increments('id');
             $table->string('descripcion', 30);
-            $table->boolean("estatus")->default(true);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -28,6 +28,6 @@ class CreateCatEstadoCivilTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cat_estado_civil');
+        Schema::dropIfExists('cat_identificaciones');
     }
 }

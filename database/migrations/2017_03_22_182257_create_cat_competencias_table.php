@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCatDestinoCreditoTable extends Migration
+class CreateCatCompetenciasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateCatDestinoCreditoTable extends Migration
      */
     public function up()
     {
-        Schema::create('cat_destino_credito', function (Blueprint $table) {
+        Schema::create('cat_competencias', function (Blueprint $table) {
             $table->increments('id');
             $table->string('descripcion', 30);
             $table->integer('orden');
-            $table->boolean("estatus")->default(true);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -29,6 +29,6 @@ class CreateCatDestinoCreditoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cat_destino_credito');
+        Schema::dropIfExists('cat_competencias');
     }
 }

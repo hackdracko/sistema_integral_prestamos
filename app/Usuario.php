@@ -10,11 +10,10 @@ class Usuario extends Model
     protected $primaryKey = "id";
     protected $fillable = [
         'id',
-        'idPromotor',
+        'promotor_id',
         'usuario',
         'administrador',
-        'activo',
-        'fechaVencimiento'
+        'fecha_vencimiento'
     ];
 
     /**
@@ -25,4 +24,8 @@ class Usuario extends Model
     protected $hidden = [
         'password',
     ];
+
+    public function promotor(){
+        return $this->hasOne('App\Promotor', 'id', 'promotor_id');
+    }
 }

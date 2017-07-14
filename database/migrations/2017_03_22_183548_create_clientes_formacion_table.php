@@ -13,58 +13,58 @@ class CreateClientesFormacionTable extends Migration
      */
     public function up()
     {
-        /*Schema::create('clientes_formacion', function (Blueprint $table) {
+        Schema::create('clientes_formacion', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre', 45);
-            $table->string('apellidoPaterno', 45);
-            $table->string('apellidoMaterno', 45);
-            $table->integer('idTipoCliente');
+            $table->string('apellido_paterno', 45);
+            $table->string('apellido_materno', 45);
+            $table->integer('tipo_cliente_id');
             $table->string('rfc', 20);
-            $table->integer('idLugarNacimiento');
-            $table->date("fechaNacimiento");
-            $table->integer('idClaveCivil');
-            $table->integer('idGenero');
-            $table->integer('idNacionalidad');
-            $table->string('telefonoCelular', 20);
-            $table->integer('idCompaniaCelular');
-            $table->integer('idIdentificacion');
-            $table->string('numeroIdentificacion', 50);
-            $table->boolean("clienteCompetencia")->default(false);
-            $table->integer('idCompetencia');
-            $table->integer('idPrestamoSolicitado');
-            $table->string('prestamoSolicitado', 20);
-            $table->integer('idDestinoPrestamo');
-            $table->string('codigoPostal', 17);
-            $table->integer('idEstado');
+            $table->integer('lugar_nacimiento_id');
+            $table->date("fecha_nacimiento");
+            $table->integer('estado_civil_id');
+            $table->integer('genero_id');
+            $table->integer('nacionalidad_id');
+            $table->string('telefono_celular', 20);
+            $table->integer('compania_celular_id');
+            $table->integer('identificacion_id');
+            $table->string('numero_identificacion', 50);
+            $table->boolean("cliente_competencia")->default(false);
+            $table->integer('competencia_id');
+            $table->integer('prestamo_solicitado_id');
+            $table->string('prestamo_solicitado', 20);
+            $table->integer('destino_prestamo_id');
+            $table->string('codigo_postal', 17);
+            $table->integer('estado_id');
             $table->string('localidad', 80);
             $table->string('delegacion', 70);
             $table->string('colonia', 80);
             $table->string('calle', 80);
-            $table->string('numeroExterior', 10);
-            $table->string('numeroInterior', 10);
-            $table->integer('idSucursal');
-            $table->integer('idPromotor');
-            $table->integer('idGrupo');
-            $table->boolean("autorizacionImpresa")->default(false);
+            $table->string('numero_exterior', 10);
+            $table->string('numero_interior', 10);
+            $table->integer('sucursal_id');
+            $table->integer('promotor_id');
+            $table->integer('grupo_id');
+            $table->boolean("autorizacion_impresa")->default(false);
             $table->boolean("preafiliado")->default(false);
-            $table->integer('idEstatusCliente');
-            $table->integer('idMotivoRechazo');
-            $table->string('motivoRechazo', 250);
-            $table->string('consecutivoGrupo', 30);
-            $table->string('consecutivoCliente', 30);
-            $table->dateTime("fechaSincronizacion");
-            $table->dateTime("fechaConsultaBuro");
-            $table->string('codigoPostalNegocio', 25);
-            $table->string('estadoNegocio', 50);
-            $table->string('localidadNegocio', 80);
-            $table->string('delegacionNegocio', 80);
-            $table->string('coloniaNegocio', 80);
-            $table->string('calleNegocio', 80);
-            $table->string('numExteriorNegocio', 10);
-            $table->string('numInteriorNegocio', 10);
-            $table->boolean("estatus")->default(true);
+            $table->integer('estatus_cliente_id');
+            $table->integer('motivo_rechazo_id');
+            $table->string('motivo_rechazo', 250);
+            $table->string('consecutivo_grupo', 30);
+            $table->string('consecutivo_cliente', 30);
+            $table->dateTime("fecha_sincronizacion");
+            $table->dateTime("fecha_consulta_buro");
+            $table->string('codigo_postal_negocio', 25);
+            $table->string('estado_negocio', 50);
+            $table->string('localidad_negocio', 80);
+            $table->string('delegacion_negocio', 80);
+            $table->string('colonia_negocio', 80);
+            $table->string('calle_negocio', 80);
+            $table->string('num_exterior_negocio', 10);
+            $table->string('num_interior_negocio', 10);
             $table->timestamps();
-        });*/
+            $table->softDeletes();
+        });
     }
 
     /**

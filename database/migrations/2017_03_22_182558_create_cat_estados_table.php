@@ -16,8 +16,8 @@ class CreateCatEstadosTable extends Migration
         Schema::create('cat_estados', function (Blueprint $table) {
             $table->increments('id');
             $table->string('descripcion', 30);
-            $table->boolean("estatus")->default(true);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
